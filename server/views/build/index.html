@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script nonce="random_value_here" src="./script.js"></script> -->
+
+    <!-- Specify nonce or hash for inline scripts -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+
+    <title>Email Verification</title>
+    <style>
+        /* body {
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+        .hideBtn {
+            display: none;
+        }
+        .showBtn {
+            display: flex;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: rgba(1, 116, 210, 0.971);
+            color: white;
+            margin-top: 10px;
+        } */
+
+        body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333333;
+    }
+
+    p {
+      color: #666666;
+    }
+
+    .success-icon {
+      color: #28a745;
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="card">
+        <div class="icon">
+            <span id="statusIcon" class=""></span>
+        </div>
+        <div id="statusMessage" class=""></div>
+        <a href="http://localhost:8800/login" id="btn" class=""></a> -->
+        <!-- <div id="resetFormContainer">
+            <h2>Password Reset Form</h2>
+            <form id="resetForm">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <button type="submit" >Reset Password</button>
+            </form>
+        </div> -->
+
+    <!-- </div> -->
+    <div class="container">
+        <div class="success-icon">
+          ✅
+        </div>
+        <h1>Email Verified Successfully</h1>
+        <p>Your email has been successfully verified. You can now access all features of our platform.</p>
+      </div>
+    <!-- <div class="container">
+        <h2>Password Reset</h2>
+        <p>Please enter your new password below:</p>
+    
+        <form id="resetForm" onsubmit="resetPassword(); return false;">
+          <label for="password">New Password:</label>
+          <input type="password" id="password" name="password" required>
+    
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+    
+          <button type="submit" class="reset-button">Reset Password</button>
+        </form>
+      </div> -->
+    <script>
+        //get the message parameter from the url
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        const status = urlParams.get('status');
+        //get the card,statusicon,and status message elements
+        const card = document.querySelector('.card');
+        const statusIcon = document.getElementById('statusIcon');
+        const statusMessage = document.getElementById('statusMessage');
+        const btn = document.getElementById('btn');
+        const resetFormContainer = document.getElementById('resetFormContainer');
+
+        //display appropriate content and set background color based on the message parameter
+        if (status === "success") {
+            statusIcon.innerHTML = "✔";
+            statusMessage.textContent = message;
+            card.classList.add("success");
+            statusIcon.classList.add("success");
+            statusMessage.classList.add("success");
+            btn.textContent = "Login";
+            btn.classList.add("showBtn");
+            resetFormContainer.style.display = 'block';
+        } else if (status === "error") {
+            statusIcon.innerHTML = "❌";
+            statusMessage.textContent = message;
+            card.classList.add("error");
+            statusIcon.classList.add("error");
+            statusMessage.classList.add("error");
+            btn.classList.add("hideBtn");
+            resetFormContainer.style.display = 'none';
+        } else {
+            statusIcon.innerHTML = "❓";
+            statusMessage.textContent = message;
+            card.classList.add("error");
+            statusIcon.classList.add("error");
+            statusMessage.classList.add("error");
+            btn.classList.add("error");
+            resetFormContainer.style.display = 'none';
+        }
+
+        // document.getElementById('resetForm').addEventListener('submit', function (event) {
+        //     event.preventDefault();
+
+        //     var newPassword = document.getElementById('newPassword').value;
+        //     var confirmPassword = document.getElementById('confirmPassword').value;
+
+        //     if (newPassword === confirmPassword) {
+        //         // Passwords match, it's a valid reset
+        //         alert('Password successfully reset. Redirecting to login page.');
+        //         // Redirect to login page
+        //         window.location.href = 'http://localhost:8800/login';
+        //     } else {
+        //         // Passwords don't match
+        //         alert('Passwords do not match. Please try again.');
+        //     }
+        // });
+
+    //     function resetPassword() {
+    //   // Perform password reset logic here (e.g., API call to update password)
+
+    //   // After successful password reset, redirect to the login page
+    //   window.location.href = 'http://localhost:8000/login';
+    // }
+    </script>
+</body>
+</html>
