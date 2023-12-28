@@ -17,6 +17,11 @@ dotenv.config();
 
 const app = express();
 
+const corsOptions = {
+    origin : "https://fianex-final-frontend.onrender.com",
+    optionsSuccessStatus : 200
+}
+
 app.use(express.static(path.join(__dirname, "views/build")));
 
 const PORT = process.env.PORT || 8000;
