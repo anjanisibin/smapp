@@ -22,6 +22,15 @@ const corsOptions = {
     optionsSuccessStatus : 200
 }
 
+app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
+    res.json({msg:'This is CORS-enabled'})
+})
+
+app.listen(PORT,function(){
+    console.log('CORS-enabled web server listening on port 80');
+})
+
+
 app.use(express.static(path.join(__dirname, "views/build")));
 
 const PORT = process.env.PORT || 8000;
