@@ -31,7 +31,7 @@ app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
 
 app.use(express.static(path.join(__dirname, "views/build")));
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 10000;
 
 dbConnection();
 
