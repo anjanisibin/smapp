@@ -23,7 +23,7 @@ const app = express();
 // }
 
 app.use(cors({
-    origin : "origin : "https://fianex.onrender.com"
+    origin : origin : "https://fianex.onrender.com"
 })
 
 // app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
