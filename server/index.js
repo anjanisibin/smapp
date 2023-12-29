@@ -28,7 +28,10 @@ const app = express();
 //     res.json({msg:'This is CORS-enabled'})
 // })
 
-
+app.use(cors({
+    origin : "https://fianex.onrender.com"
+})
+);
 
 
 app.use(express.static(path.join(__dirname, "./views/build")));
@@ -37,10 +40,7 @@ const PORT = process.env.PORT || 10000;
 
 dbConnection();
 
-app.use(cors({
-    origin : "https://fianex.onrender.com"
-})
-);
+
 
 app.use(helmet());
 app.use(cors());
