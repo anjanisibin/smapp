@@ -22,9 +22,7 @@ const app = express();
 //     optionsSuccessStatus : 200
 // }
 
-app.use(cors({
-    origin : "https://fianex.onrender.com"
-})
+
 
 // app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
 //     res.json({msg:'This is CORS-enabled'})
@@ -38,6 +36,11 @@ app.use(express.static(path.join(__dirname, "./views/build")));
 const PORT = process.env.PORT || 10000;
 
 dbConnection();
+
+app.use(cors({
+    origin : "https://fianex.onrender.com"
+})
+
 
 app.use(helmet());
 app.use(cors());
