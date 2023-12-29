@@ -17,10 +17,14 @@ dotenv.config();
 
 const app = express();
 
-const corsOptions = {
-    origin : "https://fianex.onrender.com",
-    optionsSuccessStatus : 200
-}
+// const corsOptions = {
+//     origin : "https://fianex.onrender.com",
+//     optionsSuccessStatus : 200
+// }
+
+app.use(cors({
+    origin : "origin : "https://fianex.onrender.com"
+})
 
 // app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
 //     res.json({msg:'This is CORS-enabled'})
