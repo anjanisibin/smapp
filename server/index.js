@@ -34,7 +34,7 @@ app.use(cors({
 );
 
 
-app.use(express.static(path.join(__dirname, "./views/build")));
+app.use(express.static(path.join(__dirname, "/views/build")));
 
 const PORT = process.env.PORT || 10000;
 
