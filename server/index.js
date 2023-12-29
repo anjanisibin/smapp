@@ -22,9 +22,9 @@ const corsOptions = {
     optionsSuccessStatus : 200
 }
 
-app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
-    res.json({msg:'This is CORS-enabled'})
-})
+// app.get('/profile/:id?', cors(corsOptions), function(req,res,next){
+//     res.json({msg:'This is CORS-enabled'})
+// })
 
 
 
