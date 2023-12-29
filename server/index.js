@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin : "https://fianex-final-frontend.onrender.com",
+    origin : "https://fianex-social.onrender.com",
     optionsSuccessStatus : 200
 }
 
