@@ -40,7 +40,7 @@ dbConnection();
 app.use(cors({
     origin : "https://fianex.onrender.com"
 })
-
+);
 
 app.use(helmet());
 app.use(cors());
